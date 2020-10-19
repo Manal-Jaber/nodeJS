@@ -109,9 +109,14 @@ function help(){
  * @returns {void}
  */
 arr=['buy bread','do the exercises'];
+arrcheck = [true, false];
 function list(){
  for(let i=0; i<arr.length; i++){
-  console.log(i+1 +" "+ arr[i]);
+   if(arrcheck[i] == true){
+  console.log("[✓] "+ (i+1) +" "+ arr[i]);
+   }else{
+  console.log("[] "+ (i+1) +" "+ arr[i]);
+   }
 }
 }
 /**
