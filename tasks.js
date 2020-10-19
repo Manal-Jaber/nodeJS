@@ -52,6 +52,8 @@ function onDataReceived(text) {
     add(text.slice(1).join(" "));
   }else if (text[0] === 'remove') {
     remove(text.slice(1));
+  }else if (text[0] === 'edit') {
+    edit(text.slice(1,2).join(" "), text.slice(2).join(" "));
   }else{
     unknownCommand(text);
   }
@@ -139,6 +141,20 @@ function remove(t){
     console.log("Error! Enter a number indicating an existing index");
   }else{
     arr.splice(t,1);
+  }
+}
+/**
+ * Edits list
+ *
+ * @returns {void}
+ */
+function edit(n, t){
+  if(n=="" && t==""){
+    console.log("Error! You must enter a value!")
+  }else if(isNaN(n)){
+    arr[arr.length-1]= n+ " " + t;
+  }else{
+    arr[n-1]=t;
   }
 }
 // The following line starts the application
