@@ -9,12 +9,14 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
+  var args = process.argv;
+function startApp(name){ 
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+if (args[2]=="" || args[2] == 'database.json'){
   const fs = require('fs');
   fs.readFile('database.json', 'utf-8', (err, data) => {
       if (err) {
@@ -23,7 +25,26 @@ function startApp(name){
       const user = JSON.parse(data.toString());
       console.log(user);
   });
+}else{
+  const fs = require('fs');
+
+      const newdata = JSON.stringify(arr);
+      fs.writeFileSync(args[2], newdata, (err) => {
+      if (err) {
+      throw err;
+      }
+       console.log("JSON data is saved.");
+});  
+  fs.readFile(args[2], 'utf-8', (err, data) => {
+  if (err) {
+      throw err;
+  }
+  const user = JSON.parse(data.toString());
+  console.log(user);
+  });
 }
+}
+
 
 
 /**
@@ -107,12 +128,21 @@ function quit(){
   console.log('Quitting now, goodbye!')
 const fs = require('fs');
 const data = JSON.stringify(arr);
+if (args[2]=="" || args[2] == 'database.json'){
 fs.writeFileSync('database.json', data, (err) => {
   if (err) {
       throw err;
   }
   console.log("JSON data is saved.");
 });
+}else{
+  fs.writeFileSync(args[2], data, (err) => {
+    if (err) {
+        throw err;
+    }
+    console.log("JSON data is saved.");
+  });
+}
 process.exit();
 }
 /**
