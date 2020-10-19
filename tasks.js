@@ -94,7 +94,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('you can enter\nhello\nquit\nexit\nhelp');
+  console.log('you can enter\nhello\nhello "your name"\nquit\nexit\nhelp');
 }
 // The following line starts the application
 startApp("Manal Jaber")
