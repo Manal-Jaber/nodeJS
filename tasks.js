@@ -81,6 +81,11 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
+/**
+ * Shows help
+ *
+ * @returns {void}
+ */
 function help(){
   console.log('you can enter\nhello\nquit\nexit\nhelp');
 }
