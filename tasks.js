@@ -71,7 +71,11 @@ function unknownCommand(c){
  * @returns {void}
  */
 function hello(t){
+  if(t==null){
+    console.log('hello!')
+  }else{
   console.log('hello '+t+"!")
+  }
 }
 
 
