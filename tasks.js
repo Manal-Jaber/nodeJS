@@ -50,6 +50,8 @@ function onDataReceived(text) {
     list();
   }else if (text[0] === 'add') {
     add(text.slice(1).join(" "));
+  }else if (text[0] === 'remove') {
+    remove(text.slice(1));
   }else{
     unknownCommand(text);
   }
@@ -124,6 +126,18 @@ function add(t){
   console.log(i+1 +" "+ arr[i]);
   }
 }
+}
+/**
+ * Removes from list
+ *
+ * @returns {void}
+ */
+function remove(t){
+  if(t == ""){
+    arr.splice(arr.length,1);
+  }else{
+    arr.splice(t,1);
+  }
 }
 // The following line starts the application
 startApp("Manal Jaber")
