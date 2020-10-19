@@ -46,6 +46,8 @@ function onDataReceived(text) {
     quit();
   }else if (text[0] === 'help') {
     help();
+  }else if (text[0] === 'list') {
+    list();
   }
   else{
     unknownCommand(text);
@@ -95,6 +97,17 @@ function quit(){
  */
 function help(){
   console.log('you can enter\nhello\nhello "your name"\nquit\nexit\nhelp');
+}
+/**
+ * Makes list
+ *
+ * @returns {void}
+ */
+function list(){
+  arr=['buy bread','do the exercises'];
+  for(let i=0; i<arr.length; i++){
+  console.log(i+1 +" "+ arr[i]);
+  }
 }
 // The following line starts the application
 startApp("Manal Jaber")
