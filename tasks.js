@@ -15,6 +15,14 @@ function startApp(name){
   process.stdin.on('data', onDataReceived);
   console.log(`Welcome to ${name}'s application!`)
   console.log("--------------------")
+  const fs = require('fs');
+  fs.readFile('database.json', 'utf-8', (err, data) => {
+      if (err) {
+          throw err;
+      }
+      const user = JSON.parse(data.toString());
+      console.log(user);
+  });
 }
 
 
@@ -97,7 +105,15 @@ function hello(t){
  */
 function quit(){
   console.log('Quitting now, goodbye!')
-  process.exit();
+const fs = require('fs');
+const data = JSON.stringify(arr);
+fs.writeFileSync('database.json', data, (err) => {
+  if (err) {
+      throw err;
+  }
+  console.log("JSON data is saved.");
+});
+process.exit();
 }
 /**
  * Shows help
@@ -133,6 +149,7 @@ function add(t){
     console.log("Error! Please add some task");
   }else{
     arr.push(t);
+    arrcheck.push(false);
   for(let i=0; i<arr.length; i++){
   console.log(i+1 +" "+ arr[i]);
   }
