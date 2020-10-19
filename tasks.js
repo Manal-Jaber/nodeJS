@@ -134,7 +134,7 @@ function add(t){
  */
 function remove(t){
   if(t == ""){
-    arr.splice(arr.length,1);
+    arr.splice(arr.length-1,1);
   }else{
     arr.splice(t,1);
   }
