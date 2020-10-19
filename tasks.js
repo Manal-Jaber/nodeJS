@@ -48,8 +48,9 @@ function onDataReceived(text) {
     help();
   }else if (text[0] === 'list') {
     list();
-  }
-  else{
+  }else if (text[0] === 'add') {
+    add(text.slice(1).join(" "));
+  }else{
     unknownCommand(text);
   }
 }
@@ -103,11 +104,26 @@ function help(){
  *
  * @returns {void}
  */
+arr=['buy bread','do the exercises'];
 function list(){
-  arr=['buy bread','do the exercises'];
+ for(let i=0; i<arr.length; i++){
+  console.log(i+1 +" "+ arr[i]);
+}
+}
+/**
+ * Adds to list
+ *
+ * @returns {void}
+ */
+function add(t){
+  if(t == ""){
+    console.log("Error! Please add some task");
+  }else{
+    arr.push(t);
   for(let i=0; i<arr.length; i++){
   console.log(i+1 +" "+ arr[i]);
   }
+}
 }
 // The following line starts the application
 startApp("Manal Jaber")
