@@ -54,6 +54,10 @@ function onDataReceived(text) {
     remove(text.slice(1));
   }else if (text[0] === 'edit') {
     edit(text.slice(1,2).join(" "), text.slice(2).join(" "));
+  }else if (text[0] === 'check') {
+    check(text.slice(1));
+  }else if (text[0] === 'uncheck') {
+    uncheck(text.slice(1));
   }else{
     unknownCommand(text);
   }
@@ -160,6 +164,30 @@ function edit(n, t){
     arr[arr.length-1]= n+ " " + t;
   }else{
     arr[n-1]=t;
+  }
+}
+/**
+ * Checks list
+ *
+ * @returns {void}
+ */
+function check(n){
+  if(n==""){
+    console.log("Error! You must enter a value after check!")
+  }else{
+    arrcheck[n-1]=true;
+  }
+}
+/**
+ * Checks list
+ *
+ * @returns {void}
+ */
+function uncheck(n){
+  if(n==""){
+    console.log("Error! You must enter a value after uncheck!")
+  }else{
+    arrcheck[n-1]=false;
   }
 }
 // The following line starts the application
