@@ -39,6 +39,10 @@ function onDataReceived(text) {
   }
   else if(text === 'hello\n'){
     hello();
+  }else if (text === 'exit\n') {
+    quit();
+  }else if (text === 'help\n') {
+    help();
   }
   else{
     unknownCommand(text);
@@ -77,6 +81,8 @@ function quit(){
   console.log('Quitting now, goodbye!')
   process.exit();
 }
-
+function help(){
+  console.log('you can enter\nhello\nquit\nexit\nhelp');
+}
 // The following line starts the application
 startApp("Manal Jaber")
