@@ -135,6 +135,8 @@ function add(t){
 function remove(t){
   if(t == ""){
     arr.splice(arr.length-1,1);
+  }else if(t<0 || t>= arr.length){
+    console.log("Error! Enter a number indicating an existing index");
   }else{
     arr.splice(t,1);
   }
