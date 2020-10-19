@@ -99,7 +99,7 @@ function quit(){
  * @returns {void}
  */
 function help(){
-  console.log('you can enter\nhello\nhello "your name"\nquit\nexit\nhelp');
+  console.log('you can enter\nhello\nhello "your name"\nquit\nexit\nhelp\nadd "item"\nremove\nremove "item"');
 }
 /**
  * Makes list
